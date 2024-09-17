@@ -1,0 +1,44 @@
+import streamlit as st
+import folium
+from folium.plugins import Draw
+from streamlit_folium import st_folium
+import numpy as np
+
+# Streamlit setup
+st.set_page_config(layout="wide")
+st.title("Oil Spill Simulation - Mumbai & Mexico Coasts")
+
+# Function to interpolate color based on percentage (slider value)
+def interpolate_color(start_color, end_color, t):
+    return tuple(int(start_color[i] + t * (end_color[i] - start_color[i])) for i in range(3))
+
+# Define the two polygons: Mumbai and Mexico coasts
+mumbai_coords = [(18.95, 72.80), (19.00, 72.80), (19.00, 72.90), (18.95, 72.90)]
+mexico_coords = [(22.0, -97.0), (22.5, -97.0), (22.5, -96.5), (22.0, -96.5)]
+
+# Slider for oil spread over time
+spread_percentage = st.slider("Oil Spill Spread (%)", 0, 100, 50)
+
+# Create base map
+m = folium.Map(location=[20.0, 0.0], zoom_start=2)
+
+# Function to add polygon to the map
+def add_polygon(m, coords, fill_opacity):
+    folium.Polygon(
+        locations=coords,
+        color="black",
+        weight=2,
+        fill=True,
+        fill_color=f'rgb{interpolate_color((255, 255, 255), (255, 0, 0), spread_percentage / 100)}',
+        fill_opacity=fill_opacity,
+    ).add_to(m)
+
+# Fill based on slider value
+fill_opacity = spread_percentage / 100
+
+# Add polygons
+add_polygon(m, mumbai_coords, fill_opacity)
+add_polygon(m, mexico_coords, fill_opacity)
+
+# Display the map in Streamlit
+st_folium(m, width=700, height=500)
