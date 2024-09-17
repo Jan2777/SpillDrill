@@ -1,4 +1,5 @@
-<title>🌊 SpillDrill: Your Comprehensive Oil Spill Detection and Response System</title>
+<h1>🌊 SpillDrill: Your Comprehensive Oil Spill Detection and Response System</h1>
+
 Welcome to SpillDrill! 🚨 Our innovative system provides seamless oil spill detection, tracking, and management across both web and mobile platforms. Whether you’re on the field or at the office, SpillDrill has you covered with real-time data and actionable insights.
 
 🚀 Features
