@@ -83,15 +83,15 @@ Clone the Repository
 
 bash
 Copy code
-git clone https://github.com/yourusername/spilldrill.git
+git clone https://github.com/Jan2777/spilldrill.git
 Create a Branch
 
 bash
 Copy code
-git checkout -b your-feature-branch
+git checkout -b 
 Submit a Pull Request
 
 After making your changes, submit a pull request for review.
 
 🤝 Acknowledgments
-A big thank you to all contributors and supporters! Special thanks to OpenStreetMap for the base map data.
+A big thank you to all contributors and supporters! Special thanks to AIS and NOAA for the base map data.
